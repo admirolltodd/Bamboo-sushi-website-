@@ -89,10 +89,10 @@
 </script>
 <style>
 :root{
-  --void:#1C1512; --ink:#241B17; --ash:#6B5D55; --ash-dim:#9C8F87;
-  --paper:#FBF6EE; --card:#FFFFFF; --rule:#E8DDCD; --seam:#EFE6D6;
-  --red:#D8262A; --red-hover:#C21F23; --red-deep:#7A1215; --red-tint:#FBEAE7;
-  --gold:#B8862E;
+  /* Colors intentionally omitted here — the DARK CHARCOAL THEME block below
+     is the only palette in use and defines every color token. This block
+     used to duplicate a full light palette that a later, unconditional
+     :root{} always overrode, so it could never actually render. */
   --display:'Fraunces',serif; --body:'Inter',sans-serif; --mono:'IBM Plex Mono',monospace;
   --ease:cubic-bezier(.16,.9,.28,1); --pad:clamp(20px,5vw,64px); --hud-h:76px;
 }
@@ -310,11 +310,15 @@ section{padding:clamp(64px,10vw,128px) 0}
 .tab:hover{border-color:var(--red)}
 .tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
 .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-.dish{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:22px;transition:border-color .25s,box-shadow .25s,transform .25s}
+.dish{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:22px;transition:border-color .25s,box-shadow .25s,transform .25s;
+  display:flex;flex-direction:column}
 .dish:hover{border-color:var(--red);box-shadow:0 16px 34px -20px rgba(28,21,18,.28);transform:translateY(-3px)}
 .dish h4{font-family:var(--display);font-weight:600;font-size:18px;margin-bottom:7px}
 .dish p{font-size:13.5px;color:var(--ash);line-height:1.55}
-.dish .badges{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+/* pinned to the bottom so badges land on one shared line across a row,
+   regardless of how long each dish's description runs */
+.dish .badges{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;padding-top:12px}
+.dish .badges:not(:empty){margin-top:auto}
 .dish .badges span{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:100px;background:var(--seam);color:var(--ash)}
 
 /* ---------- hibachi dark band (the one risk) ---------- */
