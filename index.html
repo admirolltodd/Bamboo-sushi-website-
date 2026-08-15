@@ -227,6 +227,36 @@ section{padding:clamp(64px,10vw,128px) 0}
 .stat-row .s b{display:block;font-family:var(--display);font-size:26px;font-weight:600;color:var(--red)}
 .stat-row .s span{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ash)}
 
+/* ---------- plating showcase ----------
+   Source ratios are mixed (5:4, 4:3 and a 3:4 portrait), so on desktop the
+   shots share one height and crop to fill, which keeps the three captions on
+   a common baseline. All three subjects are centred, so the crop is safe, and
+   the lightbox still serves the full uncropped frame. Mobile is one column
+   with no cap, so the plating is shown whole there. */
+.plate-grid{display:grid;gap:22px;align-items:start}
+@media(min-width:780px){.plate-grid{grid-template-columns:repeat(3,1fr);gap:clamp(22px,2.6vw,34px)}}
+.plate-fig{margin:0}
+.plate-shot{position:relative;display:block;width:100%;border-radius:18px;overflow:hidden;
+  background:var(--seam);cursor:zoom-in;isolation:isolate;
+  box-shadow:0 22px 48px -26px rgba(0,0,0,.75)}
+.plate-shot img{width:100%;height:auto;transition:transform .8s var(--ease)}
+.plate-shot:hover img,.plate-shot:focus-visible img{transform:scale(1.045)}
+.plate-shot .zoom{position:absolute;bottom:13px;right:13px;width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;color:var(--ink);
+  opacity:0;transform:translateY(5px);transition:opacity .3s,transform .3s}
+.plate-shot:hover .zoom,.plate-shot:focus-visible .zoom{opacity:1;transform:none}
+.plate-cap{padding-top:15px}
+.plate-cap b{display:block;font-family:var(--display);font-weight:600;font-size:19px;margin-bottom:6px}
+.plate-cap span{display:block;color:var(--ash);font-size:14px;line-height:1.6}
+/* needs to out-specify `.plate-cap span` above, or the pill stretches full width */
+.plate-cap span.plate-tag{display:inline-block;margin-top:11px;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--red-lite);
+  border:1px solid rgba(216,38,42,.35);border-radius:100px;padding:4px 11px}
+@media(min-width:780px){
+  .plate-shot img{height:clamp(300px,29vw,400px);object-fit:cover}
+}
+@media(hover:none){.plate-shot .zoom{opacity:1;transform:none}}
+
 /* ---------- menu board photos (rail inside #menu) ---------- */
 .mb-head{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;justify-content:space-between;margin-bottom:16px}
 .mb-head b{font-family:var(--display);font-weight:600;font-size:18px}
@@ -670,7 +700,9 @@ a:hover{color:var(--red-lite)}
   </a>
   <nav aria-label="Primary">
     <a href="#story">Story</a>
-    <a href="#awards">Awards</a><a href="#menu">Menu</a>
+    <a href="#awards">Awards</a>
+    <a href="#plating">Plating</a>
+    <a href="#menu">Menu</a>
     <a href="#how">How It Works</a>
     <a href="#photos">Photos</a>
     <a href="#reviews">Reviews</a>
@@ -695,7 +727,9 @@ a:hover{color:var(--red-lite)}
 
 <div class="drawer" id="drawer">
   <a href="#story">Story</a>
-  <a href="#awards">Awards</a><a href="#menu">Menu</a>
+  <a href="#awards">Awards</a>
+  <a href="#plating">Plating</a>
+  <a href="#menu">Menu</a>
   <a href="#how">How It Works</a>
   <a href="#photos">Photos</a>
   <a href="#reviews">Reviews</a>
@@ -807,11 +841,60 @@ a:hover{color:var(--red-lite)}
   </div>
 </section>
 
+<!-- ================= PLATING ================= -->
+<section id="plating" class="story" aria-labelledby="h-plating">
+  <div class="wrap">
+    <div class="shead">
+      <p class="tag rv">Order No. 03 <em>— off the pass</em></p>
+      <h2 class="rv" id="h-plating">Cut, stacked and sauced <em>to order.</em></h2>
+      <p class="rv" style="--d:80">Nothing here is a stock photo. This is what actually leaves our sushi bar and our grill. Tap any plate to see it full size.</p>
+    </div>
+
+    <div class="plate-grid">
+      <figure class="plate-fig rv">
+        <button class="plate-shot" data-lightbox="images/food/volcano-roll-baked-krab-eel-sauce.webp" data-alt="Volcano Roll topped with baked krab salad, eel sauce, scallions and sesame seeds, plated with pickled ginger and wasabi" aria-label="Enlarge photo: Volcano Roll">
+          <img src="images/food/volcano-roll-baked-krab-eel-sauce-800w.webp" srcset="images/food/volcano-roll-baked-krab-eel-sauce-800w.webp 800w, images/food/volcano-roll-baked-krab-eel-sauce.webp 1600w" sizes="(max-width:780px) 92vw, 30vw" width="1600" height="1280" loading="lazy" decoding="async" alt="Volcano Roll under a blanket of baked krab salad, finished with eel sauce, scallions and black and white sesame seeds">
+          <span class="zoom" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </button>
+        <figcaption class="plate-cap">
+          <b>Volcano Roll</b>
+          <span>Buried under baked krab salad, finished with eel sauce, scallions and sesame. Served with ginger and wasabi.</span>
+          <span class="plate-tag">Sushi Bar</span>
+        </figcaption>
+      </figure>
+
+      <figure class="plate-fig rv" style="--d:90">
+        <button class="plate-shot" data-lightbox="images/food/sunset-roll-yellowtail-salmon.webp" data-alt="Sunset Roll topped with fresh salmon, plated with pickled ginger and wasabi at the Bamboo sushi bar" aria-label="Enlarge photo: Sunset Roll">
+          <img src="images/food/sunset-roll-yellowtail-salmon-800w.webp" srcset="images/food/sunset-roll-yellowtail-salmon-800w.webp 800w, images/food/sunset-roll-yellowtail-salmon.webp 1600w" sizes="(max-width:780px) 92vw, 30vw" width="1600" height="1200" loading="lazy" decoding="async" alt="Sunset Roll laid out in a row, each piece draped with a slice of fresh salmon, with pickled ginger and wasabi">
+          <span class="zoom" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </button>
+        <figcaption class="plate-cap">
+          <b>Sunset Roll</b>
+          <span>Yellowtail, smelt roe, green onion and spicy mayo, topped with fresh salmon and sesame seeds.</span>
+          <span class="plate-tag">Raw</span>
+        </figcaption>
+      </figure>
+
+      <figure class="plate-fig rv" style="--d:180">
+        <button class="plate-shot" data-lightbox="images/food/hibachi-chicken-shrimp-steak-combo.webp" data-alt="Hibachi combination platter of chicken, shrimp and steak with grilled zucchini, onion and carrot over rice" aria-label="Enlarge photo: hibachi chicken, shrimp and steak platter">
+          <img src="images/food/hibachi-chicken-shrimp-steak-combo-800w.webp" srcset="images/food/hibachi-chicken-shrimp-steak-combo-800w.webp 800w, images/food/hibachi-chicken-shrimp-steak-combo.webp 1600w" sizes="(max-width:780px) 92vw, 30vw" width="1600" height="2133" loading="lazy" decoding="async" alt="Hibachi platter divided into chicken, shrimp and steak over grilled zucchini, onion, carrot and rice">
+          <span class="zoom" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </button>
+        <figcaption class="plate-cap">
+          <b>Steak, Shrimp &amp; Chicken</b>
+          <span>The full trio for the seriously hungry — off the flat top with hibachi vegetables and rice.</span>
+          <span class="plate-tag">Hibachi Express</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- ================= MENU ================= -->
 <section id="menu" aria-labelledby="h-menu">
   <div class="wrap">
     <div class="shead">
-      <p class="tag rv">Order No. 03 <em>— the menu</em></p>
+      <p class="tag rv">Order No. 04 <em>— the menu</em></p>
       <h2 class="rv" id="h-menu">Fan favorites, <em>hot off the grill.</em></h2>
       <p class="rv" style="--d:80">A taste of what's on the menu across all three locations — sushi rolls, hibachi entrees, ramen, and more.</p>
     </div>
@@ -865,7 +948,7 @@ a:hover{color:var(--red-lite)}
 <section id="how" class="hibachi" aria-labelledby="h-how">
   <div class="wrap hibachi-in">
     <div>
-      <p class="tag rv" style="color:#FF7A61;border-color:rgba(251,246,238,.2)">Order No. 04 <em style="color:rgba(251,246,238,.5)">— how it works</em></p>
+      <p class="tag rv" style="color:#FF7A61;border-color:rgba(251,246,238,.2)">Order No. 05 <em style="color:rgba(251,246,238,.5)">— how it works</em></p>
       <h2 class="rv" id="h-how">Full-service care,<br><em>counter-service speed.</em></h2>
       <p class="rv" style="--d:80">Order at the register, grab a table tent, and sit wherever you like. Our runners and bar staff take it from there — drinks, refills, anything you need. No waiting to be seated, no waiting on a check at the end.</p>
       <ul class="flame-list rv" style="--d:140">
@@ -887,7 +970,7 @@ a:hover{color:var(--red-lite)}
 <section id="photos" aria-labelledby="h-photos">
   <div class="wrap">
     <div class="shead">
-      <p class="tag rv">Order No. 05 <em>— the gallery</em></p>
+      <p class="tag rv">Order No. 06 <em>— the gallery</em></p>
       <h2 class="rv" id="h-photos">Fresh rolls, <em>and where to find them.</em></h2>
       <p class="rv" style="--d:80">Cut and plated at our sushi bar, plus the signs to look for on the Emerald Coast. Tap any photo to enlarge.</p>
     </div>
@@ -917,7 +1000,7 @@ a:hover{color:var(--red-lite)}
 <section id="reviews" aria-labelledby="h-reviews">
   <div class="wrap">
     <div class="shead">
-      <p class="tag rv">Order No. 06 <em>— what people say</em></p>
+      <p class="tag rv">Order No. 07 <em>— what people say</em></p>
       <h2 class="rv" id="h-reviews">Strong reviews, <em>three locations running.</em></h2>
       <p class="rv" style="--d:80">Real ratings pulled straight from the source — click through to read the full reviews.</p>
     </div>
@@ -950,7 +1033,7 @@ a:hover{color:var(--red-lite)}
 <section id="locations" class="story" aria-labelledby="h-locations">
   <div class="wrap">
     <div class="shead">
-      <p class="tag rv">Order No. 07 <em>— find your bamboo</em></p>
+      <p class="tag rv">Order No. 08 <em>— find your bamboo</em></p>
       <h2 class="rv" id="h-locations">Three locations, <em>one family.</em></h2>
       <p class="rv" style="--d:80">Pick the one closest to you and order straight from the current menu &amp; pricing.</p>
     </div>
@@ -1032,7 +1115,7 @@ a:hover{color:var(--red-lite)}
 <section id="order" aria-labelledby="h-order">
   <div class="wrap">
     <div class="shead">
-      <p class="tag rv">Order No. 08 <em>— ways to order</em></p>
+      <p class="tag rv">Order No. 09 <em>— ways to order</em></p>
       <h2 class="rv" id="h-order">Order direct. <em>It's cheaper.</em></h2>
     </div>
 
@@ -1074,7 +1157,9 @@ a:hover{color:var(--red-lite)}
       <div class="foot-col">
         <h4>Explore</h4>
         <a href="#story">Our Story</a>
-        <a href="#awards">Awards</a><a href="#menu">Menu</a>
+        <a href="#awards">Awards</a>
+        <a href="#plating">Plating</a>
+        <a href="#menu">Menu</a>
         <a href="#how">How It Works</a>
         <a href="#photos">Photos</a>
         <a href="#reviews">Reviews</a>
@@ -1454,7 +1539,7 @@ var AWARDS = [
 /* ---------------- sticky header + scrollspy + progress ---------------- */
 (function(){
   var hud=$('#hud'), bar=$('#prog');
-  var sections=['top','story','menu','how','photos','reviews','locations','order'];
+  var sections=['top','story','plating','menu','how','photos','reviews','locations','order'];
   var navLinks=$$('.hud nav a');
   var ticking=false;
 
