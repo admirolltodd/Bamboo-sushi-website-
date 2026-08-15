@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page not found | Bamboo Sushi Bar &amp; Hibachi Express</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#D8262A">
+<link rel="icon" type="image/png" href="images/brand/bamboo-sushi-hibachi-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#1A1817; --card:#232020; --ink:#F2EDE4; --ash:#B9AFA4; --rule:#332E2C;
+  --red:#D8262A; --red-lite:#F25A53; --red-hover:#E8433F;
+  --display:'Fraunces',serif; --body:'Inter',sans-serif; --mono:'IBM Plex Mono',monospace;
+  --ease:cubic-bezier(.16,.9,.28,1); --pad:clamp(20px,5vw,64px);
+}
+*{margin:0;box-sizing:border-box}
+body{
+  background:var(--paper);color:var(--ink);font-family:var(--body);
+  min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:var(--pad);position:relative;overflow:hidden;
+}
+body::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(216,38,42,.16),transparent 65%);
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{position:relative;z-index:1;max-width:520px}
+.logo{width:64px;height:auto;margin:0 auto 28px}
+.tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--red-lite);
+  padding-bottom:9px;border-bottom:1px dashed var(--rule);margin-bottom:22px}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(30px,5vw,48px);
+  line-height:1.08;letter-spacing:-.01em;margin-bottom:14px;text-wrap:balance}
+h1 em{font-style:italic;font-weight:500;color:var(--red-lite)}
+p{color:var(--ash);font-size:16px;line-height:1.65;max-width:44ch;margin:0 auto 34px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:100px;
+  font-weight:600;font-size:14.5px;transition:background .25s,color .25s,transform .25s,border-color .25s}
+.btn--red{background:var(--red);color:#fff}
+.btn--red:hover{background:var(--red-hover);transform:translateY(-1px)}
+.btn--ghost{border:1px solid var(--rule);color:var(--ink)}
+.btn--ghost:hover{border-color:var(--ash);transform:translateY(-1px)}
+:focus-visible{outline:2.5px solid var(--red);outline-offset:3px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="logo" src="images/brand/bamboo-sushi-hibachi-logo.png" alt="Bamboo Sushi Bar &amp; Hibachi Express logo" width="64" height="80">
+    <p class="tag">Order No. 404 <em>— not on the menu</em></p>
+    <h1>This page <em>didn't make it to the table.</em></h1>
+    <p>The link you followed is out of date, or the page just isn't here. The full menu, hours and all three locations are on the homepage.</p>
+    <div class="actions">
+      <a class="btn btn--red" href="/">Back to the homepage</a>
+      <a class="btn btn--ghost" href="/#locations">Find a location</a>
+    </div>
+  </div>
+</body>
+</html>
