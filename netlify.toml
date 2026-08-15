@@ -18,3 +18,51 @@
   for = "/index.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+# Security headers, applied to every response.
+#
+# This is a static informational site: no login, no forms, no user data
+# collection, and everything on the page is content the site owner wrote
+# (nothing here reflects visitor input back into the page). So the value
+# of these headers isn't "patching a vulnerability" — there isn't one —
+# it's closing off the standard things a public site should not leave
+# open by default: someone framing the page in a hidden iframe to trick
+# a click (clickjacking), a browser being tricked into executing a file
+# as script because of its content instead of its declared type (MIME
+# sniffing), and the browser handing out camera/mic/location access to
+# a page that never asks for any of them.
+#
+# script-src/style-src need 'unsafe-inline' because the whole site is one
+# inline <style> and inline <script> block with no build step to hash or
+# externalize them — this is a static file, not a server that could mint
+# a per-request nonce. That does trade away some of what CSP is best at
+# (stopping injected inline scripts), but there is nowhere on this page
+# that visitor-controlled data is ever written back into the HTML, so
+# that specific risk does not apply here today. If a contact form, a
+# comment box, or a search box is ever added, revisit this line first.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# DEPLOY.md and this file are project notes for whoever maintains the
+# site, not pages for customers — publish="." means Netlify would
+# otherwise serve them at /DEPLOY.md and /netlify.toml. Neither file
+# contains anything sensitive (checked), this just keeps them off the
+# live site.
+[[redirects]]
+  from = "/DEPLOY.md"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify.toml"
+  to = "/index.html"
+  status = 404
+  force = true
