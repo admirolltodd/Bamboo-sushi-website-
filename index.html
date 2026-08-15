@@ -249,11 +249,9 @@ section{padding:clamp(64px,10vw,128px) 0}
 
 /* ---------- photo gallery ---------- */
 .gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-@media(min-width:700px){.gal-grid{grid-template-columns:repeat(3,1fr);gap:16px}}
-@media(min-width:1040px){.gal-grid{grid-template-columns:repeat(4,1fr);gap:18px}}
+@media(min-width:760px){.gal-grid{grid-template-columns:repeat(4,1fr);gap:18px}}
 .gal-item{position:relative;display:block;width:100%;aspect-ratio:1/1;border-radius:18px;
   overflow:hidden;background:var(--seam);cursor:zoom-in;isolation:isolate}
-@media(min-width:700px){.gal-item.wide{grid-column:span 2;aspect-ratio:2/1}}
 .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
 .gal-item:hover img,.gal-item:focus-visible img{transform:scale(1.07)}
 .gal-item::after{content:'';position:absolute;inset:0;z-index:1;
@@ -831,49 +829,25 @@ a:hover{color:var(--red-lite)}
     </div>
 
     <div class="mb-head rv">
-      <b>Photos of our menu boards</b>
-      <span>Tap any board to enlarge — scroll for more</span>
+      <b>Our specialty menus</b>
+      <span>Vegan, gluten free, boats &amp; drink specials — tap to enlarge</span>
     </div>
     <div class="mb-rail rv" style="--d:60">
-      <button class="mb-card" data-lightbox="images/menu/menu-specialty-rolls-soba-noodles.webp" data-alt="Menu board listing specialty sushi rolls and soba noodle dishes at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge menu board: specialty rolls and soba noodles">
-        <img src="images/menu/menu-specialty-rolls-soba-noodles-800w.webp" srcset="images/menu/menu-specialty-rolls-soba-noodles-800w.webp 800w, images/menu/menu-specialty-rolls-soba-noodles.webp 952w" sizes="(max-width:700px) 60vw, 210px" width="952" height="1288" loading="lazy" decoding="async" alt="Bamboo menu board for specialty sushi rolls and soba noodles">
-        <span class="mb-label">Specialty Rolls &amp; Soba</span>
-      </button>
-      <button class="mb-card" data-lightbox="images/menu/menu-smoke-rolls-hibachi-express-entrees.webp" data-alt="Menu board listing smoke rolls and hibachi express entrees at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge menu board: smoke rolls and hibachi entrees">
-        <img src="images/menu/menu-smoke-rolls-hibachi-express-entrees-800w.webp" srcset="images/menu/menu-smoke-rolls-hibachi-express-entrees-800w.webp 800w, images/menu/menu-smoke-rolls-hibachi-express-entrees.webp 952w" sizes="(max-width:700px) 60vw, 210px" width="952" height="1288" loading="lazy" decoding="async" alt="Bamboo menu board for smoke rolls and hibachi express entrees">
-        <span class="mb-label">Smoke Rolls &amp; Hibachi</span>
-      </button>
-      <button class="mb-card" data-lightbox="images/menu/menu-japanese-curry-hibachi-express-entrees.webp" data-alt="Menu board listing Japanese curry and hibachi express entrees at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge menu board: Japanese curry and hibachi entrees">
-        <img src="images/menu/menu-japanese-curry-hibachi-express-entrees-800w.webp" srcset="images/menu/menu-japanese-curry-hibachi-express-entrees-800w.webp 800w, images/menu/menu-japanese-curry-hibachi-express-entrees.webp 952w" sizes="(max-width:700px) 60vw, 210px" width="952" height="1288" loading="lazy" decoding="async" alt="Bamboo menu board for Japanese curry and hibachi express entrees">
-        <span class="mb-label">Japanese Curry</span>
-      </button>
-      <button class="mb-card" data-lightbox="images/menu/menu-appetizers-soups-salads-rice-plates.webp" data-alt="Menu board listing appetizers, soups, salads and rice plates at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge menu board: appetizers, soups, salads and rice plates">
-        <img src="images/menu/menu-appetizers-soups-salads-rice-plates-800w.webp" srcset="images/menu/menu-appetizers-soups-salads-rice-plates-800w.webp 800w, images/menu/menu-appetizers-soups-salads-rice-plates.webp 952w" sizes="(max-width:700px) 60vw, 210px" width="952" height="1288" loading="lazy" decoding="async" alt="Bamboo menu board for appetizers, soups, salads and rice plates">
-        <span class="mb-label">Apps, Soups &amp; Salads</span>
-      </button>
-      <button class="mb-card" data-lightbox="images/menu/sushi-boat-menu-toryu-soryu-ouroboros.webp" data-alt="Sushi boat menu board showing the Toryu, Soryu and Ouroboros boats at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge menu board: sushi boats">
+      <button class="mb-card" data-lightbox="images/menu/sushi-boat-menu-toryu-soryu-ouroboros.webp" data-alt="Sushi boat menu board showing the Toryu, Soryu and Ouroboros boats at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge menu: sushi boats">
         <img src="images/menu/sushi-boat-menu-toryu-soryu-ouroboros-800w.webp" srcset="images/menu/sushi-boat-menu-toryu-soryu-ouroboros-800w.webp 800w, images/menu/sushi-boat-menu-toryu-soryu-ouroboros.webp 952w" sizes="(max-width:700px) 60vw, 210px" width="952" height="1288" loading="lazy" decoding="async" alt="Bamboo sushi boat menu board — Toryu, Soryu and Ouroboros">
         <span class="mb-label">Sushi Boats</span>
       </button>
-      <button class="mb-card" data-lightbox="images/menu/menu-kids-meals-desserts-drinks.webp" data-alt="Menu board listing kids meals, desserts and drinks at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge menu board: kids meals, desserts and drinks">
-        <img src="images/menu/menu-kids-meals-desserts-drinks-800w.webp" srcset="images/menu/menu-kids-meals-desserts-drinks-800w.webp 800w, images/menu/menu-kids-meals-desserts-drinks.webp 952w" sizes="(max-width:700px) 60vw, 210px" width="952" height="1288" loading="lazy" decoding="async" alt="Bamboo menu board for kids meals, desserts and drinks">
-        <span class="mb-label">Kids, Desserts &amp; Drinks</span>
-      </button>
-      <button class="mb-card" data-lightbox="images/menu/weekly-drink-specials-sake-beer-wine.webp" data-alt="Weekly drink specials board listing sake, beer and wine deals at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge menu board: weekly drink specials">
+      <button class="mb-card" data-lightbox="images/menu/weekly-drink-specials-sake-beer-wine.webp" data-alt="Weekly drink specials board listing sake, beer and wine deals at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge menu: weekly drink specials">
         <img src="images/menu/weekly-drink-specials-sake-beer-wine-800w.webp" srcset="images/menu/weekly-drink-specials-sake-beer-wine-800w.webp 800w, images/menu/weekly-drink-specials-sake-beer-wine.webp 952w" sizes="(max-width:700px) 60vw, 210px" width="952" height="1260" loading="lazy" decoding="async" alt="Bamboo weekly drink specials board — sake, beer and wine">
         <span class="mb-label">Weekly Drink Specials</span>
       </button>
-      <button class="mb-card" data-lightbox="images/menu/gluten-free-menu-bamboo-sushi-hibachi.webp" data-alt="Gluten free menu at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge menu board: gluten free menu">
+      <button class="mb-card" data-lightbox="images/menu/gluten-free-menu-bamboo-sushi-hibachi.webp" data-alt="Gluten free menu at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge menu: gluten free menu">
         <img src="images/menu/gluten-free-menu-bamboo-sushi-hibachi.webp" sizes="(max-width:700px) 60vw, 210px" width="840" height="1456" loading="lazy" decoding="async" alt="Bamboo gluten free menu">
         <span class="mb-label">Gluten Free Menu</span>
       </button>
-      <button class="mb-card" data-lightbox="images/menu/vegan-menu-bamboo-sushi-hibachi.webp" data-alt="Vegan menu at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge menu board: vegan menu">
+      <button class="mb-card" data-lightbox="images/menu/vegan-menu-bamboo-sushi-hibachi.webp" data-alt="Vegan menu at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge menu: vegan menu">
         <img src="images/menu/vegan-menu-bamboo-sushi-hibachi.webp" sizes="(max-width:700px) 60vw, 210px" width="840" height="1456" loading="lazy" decoding="async" alt="Bamboo vegan menu">
         <span class="mb-label">Vegan Menu</span>
-      </button>
-      <button class="mb-card" data-lightbox="images/menu/digital-menu-boards-sushi-hibachi-express.webp" data-alt="Digital menu boards above the counter at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge photo: digital menu boards above the counter">
-        <img src="images/menu/digital-menu-boards-sushi-hibachi-express-800w.webp" srcset="images/menu/digital-menu-boards-sushi-hibachi-express-800w.webp 800w, images/menu/digital-menu-boards-sushi-hibachi-express.webp 1568w" sizes="(max-width:700px) 60vw, 210px" width="1568" height="392" loading="lazy" decoding="async" alt="Digital menu boards above the ordering counter at Bamboo">
-        <span class="mb-label">In-Store Boards</span>
       </button>
     </div>
 
@@ -914,8 +888,8 @@ a:hover{color:var(--red-lite)}
   <div class="wrap">
     <div class="shead">
       <p class="tag rv">Order No. 05 <em>— the gallery</em></p>
-      <h2 class="rv" id="h-photos">The food, <em>the room, the rolls.</em></h2>
-      <p class="rv" style="--d:80">A look at what comes out of our kitchen and sushi bar — and the three rooms we serve it in. Tap any photo to enlarge.</p>
+      <h2 class="rv" id="h-photos">Fresh rolls, <em>and where to find them.</em></h2>
+      <p class="rv" style="--d:80">Cut and plated at our sushi bar, plus the signs to look for on the Emerald Coast. Tap any photo to enlarge.</p>
     </div>
 
     <div class="gal-grid">
@@ -923,25 +897,13 @@ a:hover{color:var(--red-lite)}
         <img src="images/food/crispy-fried-sushi-roll-platter-bamboo-sauce.webp" sizes="(max-width:700px) 48vw, (max-width:1040px) 32vw, 24vw" width="640" height="596" loading="lazy" decoding="async" alt="Crispy fried sushi roll platter drizzled with bamboo sauce, hand-rolled at the Bamboo sushi bar">
         <span class="gal-cap">Crispy Fried Roll Platter</span>
       </button>
-      <button class="gal-item wide rv" style="--d:60" data-lightbox="images/gallery/bamboo-sushi-hibachi-storefront-evening.webp" data-alt="Bamboo Sushi Bar &amp; Hibachi Express storefront lit up in the evening" aria-label="Enlarge photo: storefront in the evening">
+      <button class="gal-item rv" style="--d:60" data-lightbox="images/gallery/bamboo-sushi-hibachi-storefront-evening.webp" data-alt="Bamboo Sushi Bar &amp; Hibachi Express storefront lit up in the evening" aria-label="Enlarge photo: storefront in the evening">
         <img src="images/gallery/bamboo-sushi-hibachi-storefront-evening-800w.webp" srcset="images/gallery/bamboo-sushi-hibachi-storefront-evening-800w.webp 800w, images/gallery/bamboo-sushi-hibachi-storefront-evening.webp 1288w" sizes="(max-width:700px) 48vw, 48vw" width="1288" height="952" loading="lazy" decoding="async" alt="Bamboo Sushi Bar &amp; Hibachi Express storefront lit up at dusk">
         <span class="gal-cap">Storefront, Evening</span>
       </button>
       <button class="gal-item rv" style="--d:120" data-lightbox="images/food/seared-ahi-tuna-sashimi-emerald-coast.webp" data-alt="Seared ahi tuna sashimi plated with citrus and orchid garnish at Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge photo: seared ahi tuna sashimi">
         <img src="images/food/seared-ahi-tuna-sashimi-emerald-coast.webp" sizes="(max-width:700px) 48vw, (max-width:1040px) 32vw, 24vw" width="640" height="1044" loading="lazy" decoding="async" alt="Seared ahi tuna sashimi sliced and plated with citrus and orchid garnish">
         <span class="gal-cap">Seared Ahi Tuna</span>
-      </button>
-      <button class="gal-item rv" style="--d:180" data-lightbox="images/gallery/guest-enjoying-hibachi-express-meal.webp" data-alt="A guest enjoying a hibachi express meal in the dining room at Bamboo" aria-label="Enlarge photo: guest enjoying a hibachi express meal">
-        <img src="images/gallery/guest-enjoying-hibachi-express-meal.webp" sizes="(max-width:700px) 48vw, (max-width:1040px) 32vw, 24vw" width="840" height="1456" loading="lazy" decoding="async" alt="A guest enjoying a hibachi express meal in the Bamboo dining room">
-        <span class="gal-cap">Hibachi Express, Served</span>
-      </button>
-      <button class="gal-item rv" style="--d:60" data-lightbox="images/gallery/dining-room-interior-sushi-bar-menu-boards.webp" data-alt="Bamboo dining room interior with the sushi bar and menu boards" aria-label="Enlarge photo: dining room interior">
-        <img src="images/gallery/dining-room-interior-sushi-bar-menu-boards.webp" sizes="(max-width:700px) 48vw, (max-width:1040px) 32vw, 24vw" width="364" height="364" loading="lazy" decoding="async" alt="Bamboo dining room interior showing the sushi bar and overhead menu boards">
-        <span class="gal-cap">Inside the Dining Room</span>
-      </button>
-      <button class="gal-item wide rv" style="--d:120" data-lightbox="images/gallery/bamboo-sushi-bar-hibachi-express-exterior-sign.webp" data-alt="Exterior sign for Bamboo Sushi Bar &amp; Hibachi Express" aria-label="Enlarge photo: exterior sign">
-        <img src="images/gallery/bamboo-sushi-bar-hibachi-express-exterior-sign-800w.webp" srcset="images/gallery/bamboo-sushi-bar-hibachi-express-exterior-sign-800w.webp 800w, images/gallery/bamboo-sushi-bar-hibachi-express-exterior-sign.webp 1288w" sizes="(max-width:700px) 48vw, 48vw" width="1288" height="952" loading="lazy" decoding="async" alt="Exterior sign for Bamboo Sushi Bar &amp; Hibachi Express">
-        <span class="gal-cap">Bamboo Sushi Bar &amp; Hibachi Express</span>
       </button>
       <button class="gal-item rv" style="--d:180" data-lightbox="images/gallery/bamboo-niceville-sushi-bar-hibachi-express-sign.webp" data-alt="Bamboo Niceville sushi bar and hibachi express sign" aria-label="Enlarge photo: Niceville location sign">
         <img src="images/gallery/bamboo-niceville-sushi-bar-hibachi-express-sign-800w.webp" srcset="images/gallery/bamboo-niceville-sushi-bar-hibachi-express-sign-800w.webp 800w, images/gallery/bamboo-niceville-sushi-bar-hibachi-express-sign.webp 952w" sizes="(max-width:700px) 48vw, (max-width:1040px) 32vw, 24vw" width="952" height="1288" loading="lazy" decoding="async" alt="Bamboo Niceville sushi bar and hibachi express sign">

@@ -1,3 +1,85 @@
+# Previewing and publishing this site
+
+## Part 1 — How to preview the site while it's being worked on
+
+### Why the photos were blank
+
+If you downloaded **just `index.html`** on its own, every photo will be missing.
+That file doesn't contain the pictures — it contains *references* to them, like
+`images/food/seared-ahi-tuna-sashimi-emerald-coast.webp`. With no `images` folder
+sitting next to it, the browser has nothing to load. Nothing is broken; the other
+half just wasn't there.
+
+Two ways to fix that, depending on what you're after.
+
+### Option 1 — Download the whole repo (works offline, no setup)
+
+On the GitHub repo page: green **Code** button → **Download ZIP**. Unzip it, and
+open `index.html` from *inside* the unzipped folder. The `images` folder rides
+along and every photo appears.
+
+The rule to remember: **`index.html` and `images/` must always travel together.**
+
+### Option 2 — GitHub Pages (a real live URL, updates on every push)
+
+This is the best answer to "check the work in realtime." It's free, built into the
+repo, and gives you a real address you can open on your phone or send to the owners.
+
+1. Repo → **Settings** → **Pages** (left sidebar).
+2. Under **Source**, choose **Deploy from a branch**.
+3. Set the branch to **`claude/website-godaddy-migration-bopl1q`** and the folder to
+   **`/ (root)`**. Save.
+4. Wait a minute or two, then open:
+   `https://admirolltodd.github.io/Bamboo-sushi-website-/`
+
+From then on, every push to that branch republishes automatically — refresh the page
+and you see the current state. Switch the branch setting to `main` later, once the
+work is merged.
+
+### What does *not* work: viewing the raw file on GitHub
+
+Worth knowing so you don't lose time on it. Clicking a `.html` file on GitHub shows
+you the **source code**, not the page. And the "Raw" button hands the file over as
+plain text on purpose — GitHub deliberately refuses to render HTML from raw URLs, so
+nobody can host a webpage through them. There's no setting to change that. Use
+GitHub Pages (Option 2) instead — that's exactly the feature for it.
+
+---
+
+## Part 2 — Putting it somewhere permanent
+
+## Netlify — the proof of concept, and probably the real answer
+
+This gets a genuine public site running in about five minutes, at no cost, before
+anyone touches the restaurant's domain or pays GoDaddy another dollar.
+
+The repo already contains `netlify.toml`, so Netlify won't ask you any build
+questions — it's pre-answered.
+
+**Fastest version (no account linking, ~2 minutes):**
+Download the repo ZIP, unzip it, go to <https://app.netlify.com/drop> and drag the
+unzipped folder onto the page. You get a live URL immediately. Good for showing
+someone quickly; it won't auto-update.
+
+**Proper version (auto-deploys on every push):**
+
+1. Sign up free at netlify.com and choose **Add new site → Import an existing project**.
+2. Connect GitHub, pick this repository.
+3. Build command and publish directory are already set by `netlify.toml` — just deploy.
+4. You get something like `bamboo-sushi.netlify.app`. That's a real, HTTPS, public site.
+5. Rename it to something tidy under **Site settings → Change site name**.
+
+Every push republishes on its own. If a change looks wrong, Netlify keeps every past
+deploy and you can roll back with one click.
+
+**Pointing bamboo-sushi.com at it:** in Netlify, **Domain settings → Add custom
+domain**, enter the domain, and it shows you the DNS records. Enter those in GoDaddy
+under **My Products → Domain → DNS → Manage Zones**. HTTPS is issued automatically
+and free. If the restaurant only owns the *domain* at GoDaddy and isn't paying for
+hosting, this is the whole job — and there's nothing to cancel or migrate.
+
+---
+
 # Putting this site live on GoDaddy
 
 This site is plain static HTML — one `index.html` file plus an `images/` folder.
